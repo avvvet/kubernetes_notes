@@ -35,9 +35,9 @@ step-7
 start minikube
 `minikube start --force`    (why force, incase if you docker is running with root, as this for learing, it is ok, but on production, do not use it)
 
-# our first pod 
-pod: represents containers, where your application will run. It is logical grouping, 
-horizontal scalling is generally discuraged. 
+# pod 
+pod: represents containers, where your application will run. It is logical grouping, horizontal scalling is generally discuraged. 
+it is the smallest deployable unit.
 
 create a .yaml definition file and run it. In the definition fiel, `kind: Pod` this is one way
 of creating a pod. Will see also other way to create pods. 
