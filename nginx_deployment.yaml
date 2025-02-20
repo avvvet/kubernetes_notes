@@ -1,22 +1,24 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: apps/v1  # Specifies the API version for Deployment. "apps/v1" is the latest stable API for managing Deployments.
+kind: Deployment  # Defines this resource as a Deployment, which manages application scaling and updates.
 metadata:
-  name: nginx-deploy
-  lables:
-    app: nginx
+  name: nginx-deployment  # The name of the Deployment. Used for identification in Kubernetes.
+  labels:
+    app: nginx  # Labels help group resources. Here, it's labeling the deployment as "nginx".
+
 spec:
-  replicas: 3    #run 3 instances
+  replicas: 3  # Defines how many instances (pods) of the application should run.
   selector:
     matchLabels:
-      app: nginx
-  template:
+      app: nginx  # Tells Kubernetes which Pods this Deployment should manage. It selects Pods that have the label "app: nginx".
+
+  template:  # Describes the Pod template that Kubernetes will use to create Pods.
     metadata:
       labels:
-        app: nginx
-    spec:
+        app: nginx  # Assigns the same label to Pods so that the selector can identify them.
+
+    spec:  # Defines the specification for the Pod (what containers will run inside the Pod).
       containers:
-      - name: nginx
-        image: nginx:stable-alpine
-        ports: 
-        - containerPort: 80
-        
+      - name: nginx  # The name of the container inside the Pod.
+        image: nginx:stable-alpine  # The container image to use. This pulls the latest stable version of Nginx from Docker Hub.
+        ports:
+        - containerPort: 80  # Exposes port 80 inside the container. Nginx listens on port 80 by default.
