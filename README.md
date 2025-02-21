@@ -65,6 +65,9 @@ before authentiating your local doctl, you need create api token in your digital
 control panel. 
 `doctl auth init` 
 
+# if you previously authenticated, you need to remove the context
+`doctl auth remove --context default`
+
 #  doctl permission
  as we are using snap version of doctl we need to set permission
  `sudo snap connect doctl:kube-config`  or `sudo chown $USER:$USER ~/.kube/config`
